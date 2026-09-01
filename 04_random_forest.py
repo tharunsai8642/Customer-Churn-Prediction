@@ -23,7 +23,15 @@ from sklearn.metrics import (
 )
 from sklearn.model_selection import train_test_split
 
-from config import DATA_CLEANED, OUTPUT_DIR, RANDOM_STATE, TARGET, TEST_SIZE
+from config import (
+    DATA_CLEANED,
+    OUTPUT_DIR,
+    RANDOM_STATE,
+    TARGET,
+    TRAIN_SIZE,
+    VALIDATION_SIZE,
+    TEST_SIZE,
+)
 
 os.makedirs(OUTPUT_DIR, exist_ok=True)
 
@@ -32,20 +40,20 @@ df = pd.read_csv(DATA_CLEANED)
 X = df.drop(columns=[TARGET])
 y = df[TARGET]
 
-# Split into train and temporary data
+# 60% training, 20% validation, 20% testing
 X_train, X_temp, y_train, y_temp = train_test_split(
     X,
     y,
-    test_size=TEST_SIZE,
+    train_size=TRAIN_SIZE,
     random_state=RANDOM_STATE,
     stratify=y,
 )
 
-# Split temporary data into validation and final test sets
+validation_test_ratio = VALIDATION_SIZE / (VALIDATION_SIZE + TEST_SIZE)
 X_val, X_test, y_val, y_test = train_test_split(
     X_temp,
     y_temp,
-    test_size=0.5,
+    test_size=1 - validation_test_ratio,
     random_state=RANDOM_STATE,
     stratify=y_temp,
 )
