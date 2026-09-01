@@ -1,0 +1,131 @@
+================================================================================
+Q01 - Total number of customers
+Counts all rows in the table.
+--------------------------------------------------------------------------------
+ total_customers
+           64374
+
+================================================================================
+Q02 - Churn vs Non-Churn count
+Groups by Churn and counts each category.
+--------------------------------------------------------------------------------
+ Churn  customer_count
+     0           33881
+     1           30493
+
+================================================================================
+Q03 - Average age of churned vs non-churned
+Calculates average, minimum, and maximum age by churn status.
+--------------------------------------------------------------------------------
+ Churn  avg_age  min_age  max_age
+     0    41.13       18       65
+     1    42.90       18       65
+
+================================================================================
+Q04 - Churn rate by Subscription Type
+Shows which subscription plan has the highest churn rate.
+--------------------------------------------------------------------------------
+Subscription Type  total_customers  churned_customers  churn_rate_pct
+            Basic            21451              10356           48.28
+         Standard            21502              10177           47.33
+          Premium            21421               9960           46.50
+
+================================================================================
+Q05 - Churn rate by Contract Length
+Shows which contract type has the highest churn rate.
+--------------------------------------------------------------------------------
+Contract Length  total_customers  churned_customers  churn_rate_pct
+        Monthly            22130              11421           51.61
+         Annual            21410               9895           46.22
+      Quarterly            20834               9177           44.05
+
+================================================================================
+Q06 - Average Total Spend by Churn status
+Checks whether churned customers spend less on average.
+--------------------------------------------------------------------------------
+ Churn  avg_spend  total_spend
+     0     560.54   18991722.0
+     1     519.34   15836117.0
+
+================================================================================
+Q07 - Top 10 highest spending customers
+Displays the biggest spenders in the dataset.
+--------------------------------------------------------------------------------
+ CustomerID  Age Gender  Total Spend  Churn
+         41   29 Female         1000      1
+       1116   21   Male         1000      0
+       1866   27 Female         1000      0
+       2504   24 Female         1000      0
+       3907   23   Male         1000      0
+       5638   40   Male         1000      0
+       9919   42 Female         1000      0
+      11523   49   Male         1000      1
+      12219   45   Male         1000      0
+      16973   22 Female         1000      0
+
+================================================================================
+Q08 - Average Support Calls by Churn
+Compares support call volume between churned and non-churned customers.
+--------------------------------------------------------------------------------
+ Churn  avg_support_calls
+     0                4.5
+     1                6.4
+
+================================================================================
+Q09 - High vs Low support calls - churn rate
+Shows the churn rate for customers with more than 5 support calls versus others.
+--------------------------------------------------------------------------------
+support_level  total_customers  churned_customers  churn_rate_pct
+         High            33138              20211           60.99
+          Low            31236              10282           32.92
+
+================================================================================
+Q10 - Usage Frequency buckets and churn rate
+Groups customers by service usage level and compares churn rates.
+--------------------------------------------------------------------------------
+usage_bucket  total_customers  churn_rate_pct
+        0-10            22812           54.96
+       11-20            20740           43.17
+         21+            20822           43.23
+
+================================================================================
+Q11 - Average Tenure by Churn status
+Measures how long churned and non-churned customers stay with the service.
+--------------------------------------------------------------------------------
+ Churn  avg_tenure
+     0       28.83
+     1       35.52
+
+================================================================================
+Q12 - Short vs Long tenure churn rate
+Compares churn rate between customers with less than 12 months and 12+ months tenure.
+--------------------------------------------------------------------------------
+tenure_group  total_customers  churned_customers  churn_rate_pct
+ Long (12m+)            53931              27126           50.30
+Short (<12m)            10443               3367           32.24
+
+================================================================================
+Q13 - Churn rate by Gender
+Compares churn rate between male and female customers.
+--------------------------------------------------------------------------------
+Gender  total_customers  churned_customers  churn_rate_pct
+Female            34353              18911           55.05
+  Male            30021              11582           38.58
+
+================================================================================
+Q14 - Payment delay and churn rate
+Shows whether customers with more payment delay are more likely to churn.
+--------------------------------------------------------------------------------
+payment_delay_group  total_customers  churn_rate_pct
+         High delay            27679           76.60
+          Low delay            17182           10.07
+       Medium delay            19513           38.75
+
+================================================================================
+Q15 - Last interaction and churn trend
+Explores whether customer engagement level is associated with churn.
+--------------------------------------------------------------------------------
+interaction_group  total_customers  churn_rate_pct
+         Moderate            21591           46.88
+              Old            21361           47.45
+           Recent            21422           47.79

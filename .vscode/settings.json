@@ -1,0 +1,7 @@
+{
+  "python.defaultInterpreterPath": "c:/Users/tharu/Bootcamp-P2/myenv/Scripts/python.exe",
+  "python.analysis.extraPaths": [
+    "c:/Users/tharu/Bootcamp-P2/myenv/Lib/site-packages"
+  ],
+  "python.terminal.activateEnvironment": true
+}

@@ -1,0 +1,463 @@
+Project Run Summary
+================================================================================
+Started at: 2026-08-31 23:23:24
+
+=== Running: 01_data_exploration.py ===
+DATASET PREVIEW
+   CustomerID  Age  Gender  ...  Total Spend  Last Interaction  Churn
+0           1   22  Female  ...          598                 9      1
+1           2   41  Female  ...          584                20      0
+2           3   47    Male  ...          757                21      0
+3           4   35    Male  ...          232                18      0
+4           5   53  Female  ...          533                18      0
+
+[5 rows x 12 columns]
+
+DATASET SHAPE
+Rows: 64374
+Columns: 12
+
+COLUMN NAMES
+['CustomerID', 'Age', 'Gender', 'Tenure', 'Usage Frequency', 'Support Calls', 'Payment Delay', 'Subscription Type', 'Contract Length', 'Total Spend', 'Last Interaction', 'Churn']
+
+DATA TYPES
+CustomerID           int64
+Age                  int64
+Gender                 str
+Tenure               int64
+Usage Frequency      int64
+Support Calls        int64
+Payment Delay        int64
+Subscription Type      str
+Contract Length        str
+Total Spend          int64
+Last Interaction     int64
+Churn                int64
+dtype: object
+
+MISSING VALUES BY COLUMN
+CustomerID           0
+Age                  0
+Gender               0
+Tenure               0
+Usage Frequency      0
+Support Calls        0
+Payment Delay        0
+Subscription Type    0
+Contract Length      0
+Total Spend          0
+Last Interaction     0
+Churn                0
+dtype: int64
+
+MISSING VALUE PERCENTAGE BY COLUMN
+CustomerID           0.0
+Age                  0.0
+Gender               0.0
+Tenure               0.0
+Usage Frequency      0.0
+Support Calls        0.0
+Payment Delay        0.0
+Subscription Type    0.0
+Contract Length      0.0
+Total Spend          0.0
+Last Interaction     0.0
+Churn                0.0
+dtype: float64
+
+NULL VALUE CHECK
+Total null values: 0
+
+EMPTY STRING VALUES BY COLUMN
+Gender               0
+Subscription Type    0
+Contract Length      0
+dtype: int64
+
+COMMON TEXT PLACEHOLDERS
+CustomerID           0
+Age                  0
+Gender               0
+Tenure               0
+Usage Frequency      0
+Support Calls        0
+Payment Delay        0
+Subscription Type    0
+Contract Length      0
+Total Spend          0
+Last Interaction     0
+Churn                0
+dtype: int64
+
+DUPLICATE ROWS
+Number of duplicate rows: 0
+
+DUPLICATE CUSTOMER IDs
+Number of duplicate CustomerIDs: 0
+
+UNIQUE VALUES BY COLUMN
+CustomerID           64374
+Age                     48
+Gender                   2
+Tenure                  60
+Usage Frequency         30
+Support Calls           11
+Payment Delay           31
+Subscription Type        3
+Contract Length          3
+Total Spend            901
+Last Interaction        30
+Churn                    2
+dtype: int64
+
+CATEGORICAL VALUE COUNTS
+
+Gender:
+Gender
+Female    34353
+Male      30021
+Name: count, dtype: int64
+
+Subscription Type:
+Subscription Type
+Standard    21502
+Basic       21451
+Premium     21421
+Name: count, dtype: int64
+
+Contract Length:
+Contract Length
+Monthly      22130
+Annual       21410
+Quarterly    20834
+Name: count, dtype: int64
+
+NUMERIC SUMMARY
+                    count          mean  ...       75%      max
+CustomerID        64374.0  32187.500000  ...  48280.75  64374.0
+Age               64374.0     41.970982  ...     54.00     65.0
+Tenure            64374.0     31.994827  ...     47.00     60.0
+Usage Frequency   64374.0     15.080234  ...     23.00     30.0
+Support Calls     64374.0      5.400690  ...      8.00     10.0
+Payment Delay     64374.0     17.133952  ...     25.00     30.0
+Total Spend       64374.0    541.023379  ...    768.00   1000.0
+Last Interaction  64374.0     15.498850  ...     23.00     30.0
+Churn             64374.0      0.473685  ...      1.00      1.0
+
+[9 rows x 8 columns]
+
+NEGATIVE VALUES BY NUMERIC COLUMN
+CustomerID          0
+Age                 0
+Tenure              0
+Usage Frequency     0
+Support Calls       0
+Payment Delay       0
+Total Spend         0
+Last Interaction    0
+Churn               0
+dtype: int64
+
+EXPECTED CATEGORY CHECK
+Gender: invalid values = None
+Subscription Type: invalid values = None
+Contract Length: invalid values = None
+
+PERCENTILE OUTLIER CHECK
+          Column  Min  Max  1st Percentile  99th Percentile  Outliers
+             Age   18   65            18.0             65.0         0
+          Tenure    1   60             1.0             60.0         0
+ Usage Frequency    1   30             1.0             30.0         0
+   Support Calls    0   10             0.0             10.0         0
+   Payment Delay    0   30             0.0             30.0         0
+     Total Spend  100 1000           109.0            990.0      1260
+Last Interaction    1   30             1.0             30.0         0
+
+CHURN COUNTS
+Churn
+0    33881
+1    30493
+Name: count, dtype: int64
+
+CHURN PERCENTAGE
+Churn
+0    52.63
+1    47.37
+Name: proportion, dtype: float64
+
+SAVING DISTRIBUTION PLOTS
+Saved: c:\Users\tharu\Bootcamp-P2\outputs\numeric_distributions.png
+Saved: c:\Users\tharu\Bootcamp-P2\outputs\categorical_distributions.png
+Saved: c:\Users\tharu\Bootcamp-P2\outputs\correlation_matrix.png
+EDA complete.
+
+Exit code: 0
+
+=== Running: 02_data_cleaning.py ===
+Raw shape: (64374, 12)
+Duplicates removed: 0
+
+Missing values per column:
+None
+Clipped 1260 outliers in 'Total Spend'
+
+Cleaned shape: (64374, 13)
+Saved to: c:\Users\tharu\Bootcamp-P2\data_cleaned.csv
+Remaining missing values: 0
+Remaining duplicate rows: 0
+Remaining text columns: []
+
+Data cleaning complete.
+
+Exit code: 0
+
+=== Running: 03_decision_tree.py ===
+Train: (51499, 12)
+Validation: (6437, 12)
+Test: (6438, 12)
+
+===== VALIDATION RESULTS =====
+Accuracy : 0.9938
+Precision : 0.9934
+Recall : 0.9934
+F1 Score : 0.9934
+ROC-AUC : 0.9999
+
+===== TEST RESULTS =====
+Accuracy : 0.9955
+Precision : 0.9938
+Recall : 0.9967
+F1 Score : 0.9953
+ROC-AUC : 0.9999
+
+Confusion Matrix:
+[[3369   19]
+ [  10 3040]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+ Not Churned       1.00      0.99      1.00      3388
+     Churned       0.99      1.00      1.00      3050
+
+    accuracy                           1.00      6438
+   macro avg       1.00      1.00      1.00      6438
+weighted avg       1.00      1.00      1.00      6438
+
+Saved feature importance plot to: c:\Users\tharu\Bootcamp-P2\outputs\dt_feature_importance.png
+Saved decision tree plot to: c:\Users\tharu\Bootcamp-P2\outputs\dt_tree_plot.png
+Saved model to: c:\Users\tharu\Bootcamp-P2\outputs\decision_tree_model.pkl
+
+Exit code: 0
+
+=== Running: 04_random_forest.py ===
+Train: (51499, 12)
+Validation: (6437, 12)
+Test: (6438, 12)
+
+===== VALIDATION RESULTS =====
+Accuracy : 0.9975
+Precision : 0.9987
+Recall : 0.9961
+F1 Score : 0.9974
+ROC-AUC : 1.0000
+
+===== TEST RESULTS =====
+Accuracy : 0.9978
+Precision : 0.9993
+Recall : 0.9961
+F1 Score : 0.9977
+ROC-AUC : 1.0000
+
+Confusion Matrix:
+[[3386    2]
+ [  12 3038]]
+
+Classification Report:
+              precision    recall  f1-score   support
+
+ Not Churned       1.00      1.00      1.00      3388
+     Churned       1.00      1.00      1.00      3050
+
+    accuracy                           1.00      6438
+   macro avg       1.00      1.00      1.00      6438
+weighted avg       1.00      1.00      1.00      6438
+
+Saved feature importance plot to: c:\Users\tharu\Bootcamp-P2\outputs\rf_feature_importance.png
+Saved model to: c:\Users\tharu\Bootcamp-P2\outputs\random_forest_model.pkl
+
+Exit code: 0
+
+=== Running: 05_model_evaluation.py ===
+===== MODEL COMPARISON =====
+        Model  Accuracy  Precision  Recall  F1 Score  ROC-AUC  CV F1 (mean)  CV F1 (std)
+Decision Tree    0.9946     0.9936  0.9951    0.9943   0.9999        0.9940       0.0006
+Random Forest    0.9977     0.9990  0.9961    0.9975   1.0000        0.9979       0.0002
+Saved model comparison CSV to: c:\Users\tharu\Bootcamp-P2\outputs\model_comparison.csv
+Saved ROC curve comparison plot to: c:\Users\tharu\Bootcamp-P2\outputs\roc_curve_comparison.png
+Saved confusion matrix plot to: c:\Users\tharu\Bootcamp-P2\outputs\confusion_matrices.png
+
+===== CLASSIFICATION REPORTS =====
+
+Decision Tree:
+              precision    recall  f1-score   support
+
+ Not Churned       1.00      0.99      0.99      6776
+     Churned       0.99      1.00      0.99      6099
+
+    accuracy                           0.99     12875
+   macro avg       0.99      0.99      0.99     12875
+weighted avg       0.99      0.99      0.99     12875
+
+
+Random Forest:
+              precision    recall  f1-score   support
+
+ Not Churned       1.00      1.00      1.00      6776
+     Churned       1.00      1.00      1.00      6099
+
+    accuracy                           1.00     12875
+   macro avg       1.00      1.00      1.00     12875
+weighted avg       1.00      1.00      1.00     12875
+
+Exit code: 0
+
+=== Running: 06_sql_queries.py ===
+================================================================================
+Q01 - Total number of customers
+Counts all rows in the table.
+--------------------------------------------------------------------------------
+ total_customers
+           64374
+
+================================================================================
+Q02 - Churn vs Non-Churn count
+Groups by Churn and counts each category.
+--------------------------------------------------------------------------------
+ Churn  customer_count
+     0           33881
+     1           30493
+
+================================================================================
+Q03 - Average age of churned vs non-churned
+Calculates average, minimum, and maximum age by churn status.
+--------------------------------------------------------------------------------
+ Churn  avg_age  min_age  max_age
+     0    41.13       18       65
+     1    42.90       18       65
+
+================================================================================
+Q04 - Churn rate by Subscription Type
+Shows which subscription plan has the highest churn rate.
+--------------------------------------------------------------------------------
+Subscription Type  total_customers  churned_customers  churn_rate_pct
+            Basic            21451              10356           48.28
+         Standard            21502              10177           47.33
+          Premium            21421               9960           46.50
+
+================================================================================
+Q05 - Churn rate by Contract Length
+Shows which contract type has the highest churn rate.
+--------------------------------------------------------------------------------
+Contract Length  total_customers  churned_customers  churn_rate_pct
+        Monthly            22130              11421           51.61
+         Annual            21410               9895           46.22
+      Quarterly            20834               9177           44.05
+
+================================================================================
+Q06 - Average Total Spend by Churn status
+Checks whether churned customers spend less on average.
+--------------------------------------------------------------------------------
+ Churn  avg_spend  total_spend
+     0     560.54   18991722.0
+     1     519.34   15836117.0
+
+================================================================================
+Q07 - Top 10 highest spending customers
+Displays the biggest spenders in the dataset.
+--------------------------------------------------------------------------------
+ CustomerID  Age Gender  Total Spend  Churn
+         41   29 Female         1000      1
+       1116   21   Male         1000      0
+       1866   27 Female         1000      0
+       2504   24 Female         1000      0
+       3907   23   Male         1000      0
+       5638   40   Male         1000      0
+       9919   42 Female         1000      0
+      11523   49   Male         1000      1
+      12219   45   Male         1000      0
+      16973   22 Female         1000      0
+
+================================================================================
+Q08 - Average Support Calls by Churn
+Compares support call volume between churned and non-churned customers.
+--------------------------------------------------------------------------------
+ Churn  avg_support_calls
+     0                4.5
+     1                6.4
+
+================================================================================
+Q09 - High vs Low support calls - churn rate
+Shows the churn rate for customers with more than 5 support calls versus others.
+--------------------------------------------------------------------------------
+support_level  total_customers  churned_customers  churn_rate_pct
+         High            33138              20211           60.99
+          Low            31236              10282           32.92
+
+================================================================================
+Q10 - Usage Frequency buckets and churn rate
+Groups customers by service usage level and compares churn rates.
+--------------------------------------------------------------------------------
+usage_bucket  total_customers  churn_rate_pct
+        0-10            22812           54.96
+       11-20            20740           43.17
+         21+            20822           43.23
+
+================================================================================
+Q11 - Average Tenure by Churn status
+Measures how long churned and non-churned customers stay with the service.
+--------------------------------------------------------------------------------
+ Churn  avg_tenure
+     0       28.83
+     1       35.52
+
+================================================================================
+Q12 - Short vs Long tenure churn rate
+Compares churn rate between customers with less than 12 months and 12+ months tenure.
+--------------------------------------------------------------------------------
+tenure_group  total_customers  churned_customers  churn_rate_pct
+ Long (12m+)            53931              27126           50.30
+Short (<12m)            10443               3367           32.24
+
+================================================================================
+Q13 - Churn rate by Gender
+Compares churn rate between male and female customers.
+--------------------------------------------------------------------------------
+Gender  total_customers  churned_customers  churn_rate_pct
+Female            34353              18911           55.05
+  Male            30021              11582           38.58
+
+================================================================================
+Q14 - Payment delay and churn rate
+Shows whether customers with more payment delay are more likely to churn.
+--------------------------------------------------------------------------------
+payment_delay_group  total_customers  churn_rate_pct
+         High delay            27679           76.60
+          Low delay            17182           10.07
+       Medium delay            19513           38.75
+
+================================================================================
+Q15 - Last interaction and churn trend
+Explores whether customer engagement level is associated with churn.
+--------------------------------------------------------------------------------
+interaction_group  total_customers  churn_rate_pct
+         Moderate            21591           46.88
+              Old            21361           47.45
+           Recent            21422           47.79
+
+All 15 SQL queries executed successfully.
+
+Exit code: 0
+
+================================================================================
+Completed at: 2026-08-31 23:24:06
